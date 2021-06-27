@@ -16,8 +16,16 @@ namespace graal {
 template<class InputIt, class Equal>
 InputIt unique( InputIt first, InputIt last, Equal eq )
 {
-    // TODO
-    return first;
+  if (eq(*first, *last)) return last;
+
+  InputIt result = first;
+  while (++first != last)
+  {
+    if (!eq(*result, *first)) 
+      *(++result)=*first;
+  }
+  return ++result;
+  
 }
 
 }

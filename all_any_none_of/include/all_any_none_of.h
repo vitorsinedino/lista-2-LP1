@@ -16,8 +16,11 @@ namespace graal {
 template<class InputIt, class UnaryPredicate>
 bool all_of(InputIt first, InputIt last, UnaryPredicate p)
 {
-    // TODO
-    return false;
+  while (first!=last) {
+    if (!p(*first)) return false;
+    ++first;
+  }
+  return true;
 }
 
 /*! 
@@ -26,8 +29,11 @@ bool all_of(InputIt first, InputIt last, UnaryPredicate p)
 template<class InputIt, class UnaryPredicate>
 bool any_of(InputIt first, InputIt last, UnaryPredicate p)
 {
-    // TODO
-    return false;
+  while (first!=last) {
+    if (p(*first)) return true;
+    ++first;
+  }
+  return false;
 }
 
 /*! 
@@ -36,8 +42,11 @@ bool any_of(InputIt first, InputIt last, UnaryPredicate p)
 template<class InputIt, class UnaryPredicate>
 bool none_of(InputIt first, InputIt last, UnaryPredicate p)
 {
-    // TODO
-    return false;
+  while (first!=last) {
+    if (p(*first)) return false;
+    ++first;
+  }
+  return true;
 }
 
 }

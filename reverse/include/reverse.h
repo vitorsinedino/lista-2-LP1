@@ -1,6 +1,8 @@
 #ifndef GRAAL_H
 #define GRAAL_H
 
+#include <bits/stdc++.h>
+using namespace std;
 #include <utility>
 using std::pair;
 #include <iterator>
@@ -16,7 +18,11 @@ namespace graal {
 template<class BidirIt>
 void reverse(BidirIt first, BidirIt last)
 {
-    // TODO
+  while ((first!=last)&&(first!=--last)) {
+    std::iter_swap (first,last);
+    ++first;
+  }
+
 }
 
 }
